@@ -1,0 +1,16 @@
+
+.container .searchBar {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    gap: 7px;
+    width: 40%;
+}
+
+.container .searchBar span {
+    color: white;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    padding: 2px 4px;
+    font-size: 14px;
+}

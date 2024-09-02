@@ -1,0 +1,31 @@
+.container {
+    height: 150px;
+    box-shadow:  2px 2px 4px 1px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    text-align: center;
+}
+
+.container > div {
+    position: relative;
+    top: -50px;
+}
+
+.container img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.container .title {
+    font-weight: 600;
+    overflow: hidden;
+    max-height: 3em;
+    line-height: 1.5em;   
+}
+
+.container .author {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
