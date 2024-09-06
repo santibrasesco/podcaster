@@ -14,3 +14,12 @@ export const setFilterSearch = (value: string): Action => ({
     type: 'SET_FILTER_SEARCH',
     payload: value
 })
+
+export const fetchRequest = (): Action => ({
+    type: 'FETCH_REQUEST'
+})
+
+export const fetchPodcastSuccess = (podcast: Podcast | undefined): Action => ({
+    type: 'FETCH_PODCAST_SUCCESS',
+    payload: podcast
+})

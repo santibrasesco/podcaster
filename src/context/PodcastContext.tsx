@@ -1,21 +1,24 @@
 'use client'
 
-import { createContext, Dispatch, ReactNode, useContext, useReducer } from "react";
+import { createContext, Dispatch, ReactNode, useContext, useReducer, useState } from "react";
 import { Action, initialState, State } from "./types";
 import { podcastReducer } from "./podcastReducer";
 
 
 const PodcastStateContext = createContext<State | null>(null);
 const DispatchContext = createContext<Dispatch<Action> | null>(null);
-
+const NavigationContext = createContext(null);
 
 export const PodcastProvider = ({ children }: { children: ReactNode }) => {
     const [state, dispatch] = useReducer(podcastReducer, initialState);
+    const [isNavigating, setIsNavigating] = useState(false);
 
     return (
         <PodcastStateContext.Provider value={state}>
             <DispatchContext.Provider value={dispatch}>
-                {children}
+                <NavigationContext.Provider value={[isNavigating, setIsNavigating]}>
+                    {children}
+                </NavigationContext.Provider>
             </DispatchContext.Provider>
         </PodcastStateContext.Provider>
     )
@@ -33,6 +36,14 @@ export const usePodcastDispatch = (): Dispatch<Action> => {
     const context = useContext(DispatchContext);
     if (!context) {
         throw new Error('usePodcastDispatch debería ser utilizado dentro de un PodcastProvider');
+    }
+    return context;
+}
+
+export const useNavigation = (): [navigation: boolean, setNavigation: (value: boolean) => void] => {
+    const context = useContext(NavigationContext);
+    if (!context) {
+        throw new Error('useNavigation debería ser utilizado dentro de un NavigationProvider');
     }
     return context;
 }
