@@ -4,7 +4,6 @@ import { fetchTopPodcasts } from "@/services/podcastService";
 import { useEffect, } from "react"
 
 const PODCASTS_STORAGE_KEY = 'cachedPodcasts';
-const TIMESTAMP_KEY = 'podcastsTimestamp';
 const CACHE_DURATION = 24 * 60 * 60 * 1000;
 
 export const useTopPodcasts = () => {
@@ -15,19 +14,22 @@ export const useTopPodcasts = () => {
 
         const loadPodcasts = async () => {
             const podcasts = await fetchTopPodcasts();
-            localStorage.setItem(TIMESTAMP_KEY, Date.now().toString());
-            localStorage.setItem(PODCASTS_STORAGE_KEY, JSON.stringify(podcasts));
+
             dispatch(fetchPodcastsSuccess(podcasts));
+
+            localStorage.setItem(PODCASTS_STORAGE_KEY, JSON.stringify({
+                timestamp: Date.now(),
+                data: podcasts
+            }));
         }
 
-        const cachedPodcasts = JSON.parse(localStorage.getItem(PODCASTS_STORAGE_KEY) || 'null');
-        const cachedTimestamp = Number(localStorage.getItem(TIMESTAMP_KEY));
+        const cache = JSON.parse(localStorage.getItem(PODCASTS_STORAGE_KEY) || 'null');
 
-        if (cachedPodcasts && cachedPodcasts.length && cachedTimestamp) {
-            const timeElapsed = Date.now() - new Date(cachedTimestamp).getTime();
+        if (cache?.data && cache?.timestamp) {
+            const timeElapsed = Date.now() - new Date(cache.timestamp).getTime();
 
             if (timeElapsed < CACHE_DURATION) {
-                dispatch(fetchPodcastsSuccess(cachedPodcasts));
+                dispatch(fetchPodcastsSuccess(cache.data));
             } else {
                 loadPodcasts();
             }
