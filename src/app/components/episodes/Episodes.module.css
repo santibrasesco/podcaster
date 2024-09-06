@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1 1 600px;
+}
+
+.container h2 {
+    margin: 0;
+}
+
+.container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.container table tbody {
+    font-size: 14px;
+}
+
+.container table tbody tr {
+    border-bottom: 1px solid rgba(0, 0, 0 , 0.1);
+}
+
+.container table thead tr {
+    border-bottom: 2px solid rgba(0, 0, 0 , 0.1);
+}
+
+.container table th {
+    padding: 12px;
+    text-align: left;
+    border: 0;
+}
+
+.container table td {
+    padding: 8px 14px;
+    text-align: left;
+    border: 0;
+}
+
+.container table th:nth-child(1)  {
+    width: 80%
+}
+
+.container table td:last-child  {
+    text-align: right;
+}
+
+.container table tbody tr:nth-child(odd) {
+    background-color: rgba(100, 100, 100, 0.1);
+}
+
+.container a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
