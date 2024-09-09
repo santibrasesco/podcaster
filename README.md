@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Podcaster
 
-## Getting Started
+Podcaster es una aplicación web SPA desarrollada con **Next.js** y **TypeScript** que permite visualizar el top 100 de los podcasts más escuchados, filtrar los resultados mediante un campo de búsqueda y ver los detalles de cada podcast. También es posible listar los últimos episodios de un podcast y reproducirlos desde la aplicación.
 
-First, run the development server:
+La aplicación se encuentra desplegada en el siguiente enlace:
+[https://podcaster-cyan.vercel.app/](https://podcaster-cyan.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Características
+
+- **Visualización del top 100 de podcasts**: Lista los 100 podcasts más escuchados a través de la API de iTunes de Apple.
+- **Filtro de búsqueda**: Filtra los podcasts por título o autor.
+- **Detalle de podcast**: Muestra información detallada sobre el podcast y sus últimos 20 episodios.
+- **Reproducción de episodios**: Reproduce cualquier episodio desde el detalle del podcast.
+
+## Tecnologías
+
+- **Next.js**
+- **React**
+- **TypeScript**
+
+## Requisitos previos
+
+Antes de ejecutar la aplicación, asegúrate de tener instalado lo siguiente:
+
+- [Node.js](https://nodejs.org/) (versión 16 o superior)
+- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
+
+## Instalación
+
+1. Clona este repositorio:
+```
+git clone https://github.com/tu-usuario/podcaster.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navega a la carpeta del proyecto:
+```
+cd podcaster
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Instala las dependencias del proyecto utilizando npm:
+ ```
+ npm install
+ ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. Ejecuta la aplicación en modo desarrollo:
+``` npm run dev ```
 
-## Learn More
+5. Abre tu navegador web y visita http://localhost:3000 para ver la aplicación en funcionamiento.
 
-To learn more about Next.js, take a look at the following resources:
+## Modo Producción
+Para ejecutar la aplicación en modo producción. Sigue estos pasos:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Abre una terminal en el directorio raíz de tu proyecto.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Ejecuta el siguiente comando para compilar los activos optimizados:
+```
+ npm run build
+ ```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Para iniciar la aplicación en modo producción, utiliza:
+ ```
+  npm start
+  ```
+## Pruebas
+La aplicación incluye pruebas unitarias y de integración utilizando Jest y React Testing Library. Para ejecutar las pruebas, usa el siguiente comando:
+``` 
+npm run test
+ ```
