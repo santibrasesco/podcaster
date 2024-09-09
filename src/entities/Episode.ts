@@ -1,12 +1,11 @@
 export interface Episode {
-    description: string;
-    releaseDate: string;
-    shortDescription: string;
     trackId: number;
     trackName: string;
+    description: string;
+    releaseDate: string;
     trackTimeMillis: number;
-    trackViewUrl: string;
     episodeUrl: string;
     episodeFileExtension: string;
     episodeContentType: string;
+    collectionId: string;
 }

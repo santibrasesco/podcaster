@@ -1,8 +1,7 @@
-import { Episodes } from "@/app/components/episodes/Episodes";
-
+import { Podcast } from "@/app/components/podcast/Podcast";
 
 export default async function PodcastPage() {
     return (
-        <Episodes />
+        <Podcast />
     )
 }

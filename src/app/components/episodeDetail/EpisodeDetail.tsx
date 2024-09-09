@@ -1,15 +1,12 @@
 'use client'
 
-import { usePodcastState } from "@/context/PodcastContext"
-import { useParams } from "next/navigation";
 import styles from "./EpisodeDetail.module.css";
 import React from 'react';
 import { Linkify } from '../common/Linkify';
+import { Episode } from "@/entities/Episode";
 
-export const EpisodeDetail = () => {
-    const { episodeId } = useParams();
-    const { podcast } = usePodcastState();
-    const episode = podcast?.episodes?.find(e => e.trackId === +episodeId);
+export const EpisodeDetail = ({ episode }: { episode: Episode }) => {
+
     const sourceType = `${episode?.episodeContentType}/${episode?.episodeFileExtension}`;
 
     return (
