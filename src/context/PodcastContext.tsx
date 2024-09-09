@@ -5,9 +5,9 @@ import { Action, initialState, State } from "./types";
 import { podcastReducer } from "./podcastReducer";
 
 
-const PodcastStateContext = createContext<State | null>(null);
-const DispatchContext = createContext<Dispatch<Action> | null>(null);
-const NavigationContext = createContext(null);
+export const PodcastStateContext = createContext<State | null>(null);
+export const DispatchContext = createContext<Dispatch<Action> | null>(null);
+export const NavigationContext = createContext(null);
 
 export const PodcastProvider = ({ children }: { children: ReactNode }) => {
     const [state, dispatch] = useReducer(podcastReducer, initialState);

@@ -3,8 +3,8 @@ import { usePodcastDispatch } from "@/context/PodcastContext";
 import { fetchTopPodcasts } from "@/services/podcastService";
 import { useEffect, } from "react"
 
-const PODCASTS_STORAGE_KEY = 'cachedPodcasts';
-const CACHE_DURATION = 24 * 60 * 60 * 1000;
+export const PODCASTS_STORAGE_KEY = 'cachedPodcasts';
+export const CACHE_DURATION = 24 * 60 * 60 * 1000;
 
 export const useTopPodcasts = () => {
     const dispatch = usePodcastDispatch();
